@@ -8,7 +8,10 @@
         :disabled="isInFirstPage"
         @click="onClickPreviousPage"
       >
-        <v-icon name="fa-angle-left" />
+        <v-icon
+          name="fa-angle-left"
+          data-testid='prev-icon'
+        />
       </base-button>
     </li>
     <li
@@ -34,7 +37,10 @@
         class="pagination__btn"
         @click="onClickNextPage"
       >
-        <v-icon name="fa-angle-right" />
+        <v-icon
+          name="fa-angle-right"
+          data-testid='next-icon'
+        />
       </base-button>
     </li>
   </ul>
