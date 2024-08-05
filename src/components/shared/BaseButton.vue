@@ -2,6 +2,7 @@
   <button
     type="button"
     class="base-button"
+    :class="{'base-button--active': props.active }"
     :disabled="props.loading"
   >
     <v-icon
@@ -16,7 +17,8 @@
 
 <script setup lang="ts">
 const props = defineProps<{
-  loading?: boolean
+  loading?: boolean,
+  active?: boolean
 }>()
 </script>
 
@@ -45,6 +47,14 @@ const props = defineProps<{
     color: var(--color-text-disabled);
     background-color: var(--color-disabled);
     cursor: auto;
+  }
+
+  &--active {
+    background-color: var(--color-secondary);
+    &[disabled] {
+      color: var(--color-text);
+      background-color: var(--color-secondary);
+    }
   }
 
 
