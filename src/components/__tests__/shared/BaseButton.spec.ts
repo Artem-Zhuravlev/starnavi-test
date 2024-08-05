@@ -29,6 +29,15 @@ describe('BaseButton.vue', () => {
     expect(spinner.classes()).toContain('base-button__spinner')
   })
 
+  it('adds active class when active is true', () => {
+    const wrapper = mount(BaseButton, {
+      props: {
+        active: true
+      }
+    })
+    expect(wrapper.classes()).toContain('base-button--active')
+  })
+
   it('does not show the loading spinner when loading is false', () => {
     const wrapper = mount(BaseButton, {
       props: {
