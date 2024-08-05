@@ -4,7 +4,6 @@
       class="pagination__item"
     >
       <base-button
-        type="button"
         :disabled="isInFirstPage"
         @click="onClickPreviousPage"
       >
@@ -20,7 +19,6 @@
       class="pagination__item"
     >
       <base-button
-        type="button"
         :disabled="page.isDisabled"
         class="pagination__btn"
         :active="isPageActive(page.name)"
@@ -32,7 +30,6 @@
 
     <li class="pagination__item">
       <base-button
-        type="button"
         :disabled="isInLastPage"
         class="pagination__btn"
         @click="onClickNextPage"
