@@ -118,13 +118,5 @@ const onClickNextPage = () => {
   display: flex;
   list-style: none;
   align-items: center;
-
-  // &__btn {
-  //   min-width: var(--size-md);
-  //   min-height: var(--size-md);
-  //   border: none;
-  //   background-color: var(--color-primary);
-  //   cursor: pointer;
-  // }
 }
 </style>
