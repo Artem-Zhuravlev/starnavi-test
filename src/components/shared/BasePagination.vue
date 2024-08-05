@@ -61,7 +61,7 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  (event: 'pagechanged', page: number): void
+  (event: 'pageChanged', page: number): void
 }>();
 
 const startPage = computed(() => {
@@ -100,7 +100,7 @@ const isInLastPage = computed(() => {
 })
 
 const onClickPage = (page: number) => {
-  emit('pagechanged', page);
+  emit('pageChanged', page);
 }
 
 const isPageActive = (page: number) => {
@@ -108,11 +108,11 @@ const isPageActive = (page: number) => {
 }
 
 const onClickPreviousPage = () => {
-  emit('pagechanged', props.currentPage - 1);
+  emit('pageChanged', props.currentPage - 1);
 }
 
 const onClickNextPage = () => {
-  emit('pagechanged', props.currentPage + 1);
+  emit('pageChanged', props.currentPage + 1);
 }
 </script>
 

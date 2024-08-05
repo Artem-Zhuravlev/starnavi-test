@@ -10,7 +10,7 @@
       :total="113"
       :per-page="10"
       :current-page="currentPage"
-      @pagechanged="onPageChange"
+      @page-changed="onPageChange"
     />
   </main>
 </template>
