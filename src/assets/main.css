@@ -1,1 +1,12 @@
 @import './base.css';
+@import './keyframes.css';
+
+html {
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-size: var(--font-size-main);
+}
