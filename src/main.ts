@@ -4,9 +4,9 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 
 import { OhVueIcon, addIcons } from 'oh-vue-icons'
-import { FaSpinner } from 'oh-vue-icons/icons'
+import { FaSpinner, FaAngleLeft, FaAngleRight } from 'oh-vue-icons/icons'
 
-addIcons(FaSpinner)
+addIcons(FaSpinner, FaAngleLeft, FaAngleRight)
 
 import App from './App.vue'
 import router from './router'
