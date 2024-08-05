@@ -6,6 +6,7 @@
   >
     <v-icon
       v-if="props.loading"
+      data-testid="spinner"
       class="base-button__spinner"
       name="fa-spinner"
     />
