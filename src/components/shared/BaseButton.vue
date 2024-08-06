@@ -33,6 +33,7 @@ const props = defineProps<{
   cursor: pointer;
   border: none;
   font-size: var(--font-size-main);
+  font-family: var(--font-family);
   transition: var(--transition-base) background-color;
 
   &:hover {
