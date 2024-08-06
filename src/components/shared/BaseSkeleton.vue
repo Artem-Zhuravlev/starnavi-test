@@ -2,16 +2,16 @@
   <div
     class="skeleton"
     :style="{
-      width: `${props.width}px`,
-      height: `${props.height}px`
+      width: props.width,
+      height: props.height
     }"
   />
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  width: number
-  height: number
+  width: string
+  height: string
 }>()
 </script>
 
