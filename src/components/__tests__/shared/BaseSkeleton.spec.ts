@@ -1,4 +1,3 @@
-// Skeleton.spec.ts
 import { mount } from '@vue/test-utils'
 import { describe, it, expect } from 'vitest'
 import BaseSkeleton from '@/components/shared/BaseSkeleton.vue'
