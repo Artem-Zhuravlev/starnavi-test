@@ -22,6 +22,10 @@
         date="2014-12-09T13:50:51.644000Z"
         to="/"
       />
+      <base-skeleton
+        :width="300"
+        :height="300"
+      />
     </div>
   </main>
 </template>
@@ -30,6 +34,7 @@
 import BaseButton from '@/components/shared/BaseButton.vue'
 import BasePagination from '@/components/shared/BasePagination.vue'
 import BaseCard from '@/components/shared/BaseCard.vue';
+import BaseSkeleton from '@/components/shared/BaseSkeleton.vue';
 import { ref } from 'vue'
 
 const isLoading = ref(false)
