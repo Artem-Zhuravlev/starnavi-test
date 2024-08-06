@@ -1,23 +1,17 @@
 <template>
   <ul class="pagination">
-    <li
-      class="pagination__item"
-    >
+    <li class="pagination__item">
       <base-button
         :disabled="isInFirstPage"
-        @click="onClickPreviousPage"
-      >
+        @click="onClickPreviousPage">
         <v-icon
           name="fa-angle-left"
-          data-testid='prev-icon'
-        />
+          data-testid="prev-icon" />
       </base-button>
     </li>
-    <li
-      v-for="page in pages"
-      :key="page.name"
-      class="pagination__item"
-    >
+    <li v-for="page in pages"
+        :key="page.name"
+        class="pagination__item">
       <base-button
         :disabled="page.isDisabled"
         class="pagination__btn"
@@ -32,20 +26,18 @@
       <base-button
         :disabled="isInLastPage"
         class="pagination__btn"
-        @click="onClickNextPage"
-      >
+        @click="onClickNextPage">
         <v-icon
           name="fa-angle-right"
-          data-testid='next-icon'
-        />
+          data-testid="next-icon" />
       </base-button>
     </li>
   </ul>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import BaseButton from './BaseButton.vue';
+import { computed } from 'vue'
+import BaseButton from './BaseButton.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -58,49 +50,51 @@ const props = withDefaults(
   {
     maxVisibleButtons: 3
   }
-);
+)
 
 const emit = defineEmits<{
   (event: 'pageChanged', page: number): void
-}>();
+}>()
 
 const startPage = computed(() => {
-  if (props.currentPage === 1) { return 1 }
-
-  if (props.currentPage === props.totalPages) {
-    return props.totalPages - props.maxVisibleButtons + 1;
+  if (props.currentPage === 1) {
+    return 1
   }
 
-  return props.currentPage - 1;
-});
+  if (props.currentPage === props.totalPages) {
+    return props.totalPages - props.maxVisibleButtons + 1
+  }
+
+  return props.currentPage - 1
+})
 
 const endPage = computed(() => {
-  return Math.min(startPage.value + props.maxVisibleButtons - 1, props.totalPages);
+  return Math.min(startPage.value + props.maxVisibleButtons - 1, props.totalPages)
 })
 
 const pages = computed(() => {
-  const range = [];
+  const range = []
 
-  for (let i = startPage.value; i <= endPage.value; i+= 1) {
+  for (let i = startPage.value; i <= endPage.value; i += 1) {
     range.push({
       name: i,
-      isDisabled: i === props.currentPage,
+      isDisabled: i === props.currentPage
     })
   }
 
-  return range;
-});
+  return range
+})
 
 const isInFirstPage = computed(() => {
-  return props.currentPage === 1;
-});
+  return props.currentPage === 1
+})
 
 const isInLastPage = computed(() => {
-  return props.currentPage === props.totalPages;
+  return props.currentPage === props.totalPages
 })
 
 const onClickPage = (page: number) => {
-  emit('pageChanged', page);
+  emit('pageChanged', page)
 }
 
 const isPageActive = (page: number) => {
@@ -108,11 +102,11 @@ const isPageActive = (page: number) => {
 }
 
 const onClickPreviousPage = () => {
-  emit('pageChanged', props.currentPage - 1);
+  emit('pageChanged', props.currentPage - 1)
 }
 
 const onClickNextPage = () => {
-  emit('pageChanged', props.currentPage + 1);
+  emit('pageChanged', props.currentPage + 1)
 }
 </script>
 
