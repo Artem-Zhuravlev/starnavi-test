@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 @import './base.css';
 @import './keyframes.css';
+@import './typography.css';
 
 html {
   font-size: 10px;
@@ -9,4 +11,11 @@ html {
 body {
   margin: 0;
   font-size: var(--font-size-main);
+  font-family: var(--font-family);
+  line-height: 1.4;
+}
+
+img {
+  display: block;
+  max-width: 100%;
 }
