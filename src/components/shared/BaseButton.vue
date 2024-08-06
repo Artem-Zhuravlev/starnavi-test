@@ -2,7 +2,7 @@
   <button
     type="button"
     class="base-button"
-    :class="{'base-button--active': props.active }"
+    :class="{ 'base-button--active': props.active }"
     :disabled="props.loading"
   >
     <v-icon
@@ -11,13 +11,13 @@
       class="base-button__spinner"
       name="fa-spinner"
     />
-    <slot  />
+    <slot />
   </button>
 </template>
 
 <script setup lang="ts">
 const props = defineProps<{
-  loading?: boolean,
+  loading?: boolean
   active?: boolean
 }>()
 </script>
@@ -56,7 +56,6 @@ const props = defineProps<{
       background-color: var(--color-secondary);
     }
   }
-
 
   &__spinner {
     transform-origin: 50%;
