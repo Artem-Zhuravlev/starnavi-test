@@ -1,9 +1,7 @@
 <template>
   <main>
     {{ isLoading }}
-    <BaseButton :loading="isLoading">
-      Home page
-    </BaseButton>
+    <BaseButton :loading="isLoading"> Home page </BaseButton>
     <BaseButton @click="isLoading = !isLoading">Click</BaseButton>
     <BasePagination
       :total-pages="11"
@@ -16,16 +14,15 @@
 </template>
 
 <script setup lang="ts">
-import BaseButton from '@/components/shared/BaseButton.vue';
-import BasePagination from '@/components/shared/BasePagination.vue';
-import { ref } from 'vue';
+import BaseButton from '@/components/shared/BaseButton.vue'
+import BasePagination from '@/components/shared/BasePagination.vue'
+import { ref } from 'vue'
 
-const isLoading = ref(false);
-const currentPage = ref(1);
+const isLoading = ref(false)
+const currentPage = ref(1)
 
 const onPageChange = (page: number) => {
-  console.log(page);
-  currentPage.value = page;
+  console.log(page)
+  currentPage.value = page
 }
-
 </script>
