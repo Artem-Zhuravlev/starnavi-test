@@ -44,27 +44,27 @@ describe('BasePagination.vue', () => {
     expect(pageButtons.length - 1).toBe(5)
   })
 
-  it('emits "pagechanged" event when a page button is clicked', async () => {
+  it('emits "pageChanged" event when a page button is clicked', async () => {
     const wrapper = mountComponent()
     await wrapper.findAll('.pagination__btn')[1].trigger('click')
-    expect(wrapper.emitted('pagechanged')).toBeTruthy()
-    expect(wrapper.emitted('pagechanged')?.[0]).toEqual([2])
+    expect(wrapper.emitted('pageChanged')).toBeTruthy()
+    expect(wrapper.emitted('pageChanged')?.[0]).toEqual([2])
   })
 
-  it('emits "pagechanged" event when the previous button is clicked', async () => {
+  it('emits "pageChanged" event when the previous button is clicked', async () => {
     const wrapper = mountComponent({ currentPage: 2 })
     const prevButton = wrapper.find('[data-testid="prev-icon"]').element.closest('button')
     await prevButton?.dispatchEvent(new Event('click'))
-    expect(wrapper.emitted('pagechanged')).toBeTruthy()
-    expect(wrapper.emitted('pagechanged')?.[0]).toEqual([1])
+    expect(wrapper.emitted('pageChanged')).toBeTruthy()
+    expect(wrapper.emitted('pageChanged')?.[0]).toEqual([1])
   })
 
   it('emits "pagechanged" event when the next button is clicked', async () => {
     const wrapper = mountComponent({ currentPage: 1 })
     const nextButton = wrapper.find('[data-testid="next-icon"]').element.closest('button')
     await nextButton?.dispatchEvent(new Event('click'))
-    expect(wrapper.emitted('pagechanged')).toBeTruthy()
-    expect(wrapper.emitted('pagechanged')?.[0]).toEqual([2])
+    expect(wrapper.emitted('pageChanged')).toBeTruthy()
+    expect(wrapper.emitted('pageChanged')?.[0]).toEqual([2])
   })
 
   it('applies active state to the current page button', () => {
