@@ -1,15 +1,15 @@
 <template>
-  <header>
-    <div class="wrapper">
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+  <navbar />
   <RouterView />
 </template>
 
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
+import Navbar from '@/components/widgets/Navbar.vue';
 </script>
+
+<style lang="scss">
+#app {
+  padding-bottom: var(--space-lg);
+}
+</style>
