@@ -115,5 +115,7 @@ const onClickNextPage = () => {
   display: flex;
   list-style: none;
   align-items: center;
+  padding-left: 0;
+  margin-bottom: var(--space-lg);
 }
 </style>
