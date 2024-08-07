@@ -29,7 +29,7 @@ import BaseSkeleton from './BaseSkeleton.vue';
 
 <style scoped lang="scss">
 .card-skeleton {
-  max-width: 300px;
+  min-width: calc(320px - (var(--space-md) * 2));
   border: 1px solid var(--color-gray);
   padding: var(--space-md);
   border-radius: var(--interface-size-sm);
