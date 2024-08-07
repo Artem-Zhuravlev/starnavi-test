@@ -6,22 +6,29 @@
     :current-page="currentPage"
     @page-changed="onPageChange"
   />
-  <div class="grid">
+  <div class="row">
     <template v-if="isLoading">
-      <base-card-skeleton
-        v-for="index in 10"
+      <div
+        v-for="index in itemsPerPage"
         :key="index"
-      />
+        class="col-lg-4 col-md-6"
+      >
+        <base-card-skeleton />
+      </div>
     </template>
     <template v-else>
-      <base-card
+      <div
         v-for="item in items"
         :key="item.id"
-        :image="`${imageUrl}/characters/${item.id}.jpg`"
-        :title="item.name"
-        :date="item.created"
-        :to="`/${item.id}`"
-      />
+        class="col-lg-4 col-md-6"
+      >
+        <base-card
+          :image="`${imageUrl}/characters/${item.id}.jpg`"
+          :title="item.name"
+          :date="item.created"
+          :to="`/${item.id}`"
+        />
+      </div>
     </template>
   </div>
 </template>
