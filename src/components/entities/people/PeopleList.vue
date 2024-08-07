@@ -1,33 +1,29 @@
 <template>
-  <main>
-    <div class="container">
-      <base-pagination
-        :total-pages="totalPages"
-        :total="total"
-        :per-page="itemsPerPage"
-        :current-page="currentPage"
-        @page-changed="onPageChange"
+  <base-pagination
+    :total-pages="totalPages"
+    :total="total"
+    :per-page="itemsPerPage"
+    :current-page="currentPage"
+    @page-changed="onPageChange"
+  />
+  <div class="grid">
+    <template v-if="isLoading">
+      <base-card-skeleton
+        v-for="index in 10"
+        :key="index"
       />
-      <div class="grid">
-        <template v-if="isLoading">
-          <base-card-skeleton
-            v-for="index in 10"
-            :key="index"
-          />
-        </template>
-        <template v-else>
-          <base-card
-            v-for="item in items"
-            :key="item.id"
-            :image="`${imageUrl}/characters/${item.id}.jpg`"
-            :title="item.name"
-            :date="item.created"
-            :to="`/${item.id}`"
-          />
-        </template>
-      </div>
-    </div>
-  </main>
+    </template>
+    <template v-else>
+      <base-card
+        v-for="item in items"
+        :key="item.id"
+        :image="`${imageUrl}/characters/${item.id}.jpg`"
+        :title="item.name"
+        :date="item.created"
+        :to="`/${item.id}`"
+      />
+    </template>
+  </div>
 </template>
 
 <script setup lang="ts">
