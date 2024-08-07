@@ -2,6 +2,7 @@
 @import './base.css';
 @import './keyframes.css';
 @import './typography.css';
+@import './grid.css';
 
 html {
   font-size: 10px;
