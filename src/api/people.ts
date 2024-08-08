@@ -1,16 +1,15 @@
 import axios, { type AxiosResponse } from './axios'
 import type IPeople from '@/interfaces/IPeople'
 
-export interface IPeopleResponse {
+export interface IPeopleResponse<T> {
   count: number
   next: string | null
   previous: string | null
-  results: IPeople[]
+  results: T
 }
-
-export const getPeople = async (page?: number): Promise<IPeopleResponse> => {
+export const getPeople = async (page?: number): Promise<IPeopleResponse<IPeople>> => {
   try {
-    const response: AxiosResponse<IPeopleResponse> = await axios.get('/people', {
+    const response: AxiosResponse<IPeopleResponse<IPeople>> = await axios.get('/people', {
       params: {
         page
       }
@@ -23,11 +22,9 @@ export const getPeople = async (page?: number): Promise<IPeopleResponse> => {
   }
 }
 
-export const getPersonById = async (id: string): Promise<IPeopleResponse> => {
+export const getPersonById = async (id: string): Promise<IPeople> => {
   try {
-    const response: AxiosResponse<IPeopleResponse> = await axios.get('/people', {
-      params: { id }
-    })
+    const response: AxiosResponse<IPeople> = await axios.get(`/people/${id}`)
 
     return response.data
   } catch (error) {
