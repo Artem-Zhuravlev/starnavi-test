@@ -3,9 +3,7 @@ import type IFilm from '@/interfaces/IFilm'
 
 export const getFilmById = async (id: string): Promise<IFilm> => {
   try {
-    const response: AxiosResponse<IFilm> = await axios.get('/films', {
-      params: { id }
-    })
+    const response: AxiosResponse<IFilm> = await axios.get(`/films/${id}`)
 
     return response.data
   } catch (error) {
