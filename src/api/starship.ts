@@ -11,3 +11,11 @@ export const getStarshipById = async (id: string): Promise<IStarship> => {
     throw error
   }
 }
+
+export const fetchStarships = async (starshipUrls: string[]) => {
+  if (!starshipUrls.length) return []
+
+  const starshipRequests = starshipUrls.map((url) => getStarshipById(url))
+  const starshipResponses = await Promise.all(starshipRequests)
+  return starshipResponses
+}
