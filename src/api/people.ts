@@ -1,8 +1,5 @@
-import axios, { type AxiosResponse } from 'axios'
+import axios, { type AxiosResponse } from './axios'
 import type IPeople from '@/interfaces/IPeople'
-
-const url = import.meta.env.VITE_APP_SW_API_URL as string
-export const imageUrl = import.meta.env.VITE_APP_SW_IMAGES_URL as string
 
 export interface IPeopleResponse {
   count: number
@@ -13,7 +10,7 @@ export interface IPeopleResponse {
 
 export const getPeople = async (page?: number): Promise<IPeopleResponse> => {
   try {
-    const response: AxiosResponse<IPeopleResponse> = await axios.get(`${url}/people`, {
+    const response: AxiosResponse<IPeopleResponse> = await axios.get('/people', {
       params: {
         page
       }
@@ -22,6 +19,19 @@ export const getPeople = async (page?: number): Promise<IPeopleResponse> => {
     return response.data
   } catch (error) {
     console.error('An error occurred while fetching people:', error)
+    throw error
+  }
+}
+
+export const getPersonById = async (id: string): Promise<IPeopleResponse> => {
+  try {
+    const response: AxiosResponse<IPeopleResponse> = await axios.get('/people', {
+      params: { id }
+    })
+
+    return response.data
+  } catch (error) {
+    console.error('An error occurred while fetching person by id:', error)
     throw error
   }
 }
