@@ -1,7 +1,7 @@
 import axios, { type AxiosResponse } from './axios'
 import type IPeople from '@/interfaces/IPeople'
-import { getFilmById } from './films'
-import { getStarshipById } from './starship'
+import { fetchFilms } from './films'
+import { fetchStarships } from './starship'
 
 export interface IPeopleResponse<T> {
   count: number
@@ -43,23 +43,17 @@ export const getPersonWithDetailsById = async (id: string) => {
       throw new Error('Person not found')
     }
 
-    const filmRequests = person.films ? person.films.flatMap((filmUrl) => getFilmById(filmUrl)) : []
-    const filmResponses = await Promise.all(filmRequests)
-    const films = filmResponses.map((response) => response)
-    const starshipRequests = person.starships
-      ? person.starships.map((starshipUrl) => getStarshipById(starshipUrl))
-      : []
-    const starshipResponses = await Promise.all(starshipRequests)
-    const starships = starshipResponses.map((response) => response)
+    const [films, starships] = await Promise.all([
+      fetchFilms(person.films || []),
+      fetchStarships(person.starships || [])
+    ])
 
     return {
       ...person,
-      films: films.map((film) => {
-        return {
-          title: film.title,
-          starships: starships.filter((starship) => film.starships.includes(starship.id))
-        }
-      })
+      films: films.map((film) => ({
+        title: film.title,
+        starships: starships.filter((starship) => film.starships.includes(starship.id))
+      }))
     }
   } catch (error) {
     console.error('An error occurred while fetching person details by id:', error)
