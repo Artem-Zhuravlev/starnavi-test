@@ -1,5 +1,7 @@
 export enum ResourceType {
-  People = 'people'
+  People = 'people',
+  Film = 'films',
+  Starship = 'starships'
 }
 
 export type IResourceUrl = string
