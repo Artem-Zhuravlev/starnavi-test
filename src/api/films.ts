@@ -1,9 +1,9 @@
 import axios, { type AxiosResponse } from './axios'
-import type IStarship from '@/interfaces/IStarship'
+import type IFilm from '@/interfaces/IFilm'
 
-export const getFilmById = async (id: string): Promise<IStarship> => {
+export const getFilmById = async (id: string): Promise<IFilm> => {
   try {
-    const response: AxiosResponse<IStarship> = await axios.get('/films', {
+    const response: AxiosResponse<IFilm> = await axios.get('/films', {
       params: { id }
     })
 
