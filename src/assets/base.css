@@ -8,6 +8,7 @@
   --color-text: #212121;
   --color-text-disabled: color-mix(in srgb, var(--color-text), #fff 50%);
   --color-gray: #d4d4d4;
+  --color-light-gray: #f8f8f8;
 
   /* typography */
   --font-size-main: 1.6rem;
