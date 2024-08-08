@@ -1,6 +1,9 @@
 <template>
   <nav class="navbar container-fluid">
-    <router-link class='navbar__logo'>
+    <router-link
+      class='navbar__logo'
+      to="/"
+    >
       <img
         src="/sw-logo.png"
         alt="Star wars logo"
