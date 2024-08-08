@@ -3,9 +3,7 @@ import type IStarship from '@/interfaces/IStarship'
 
 export const getStarshipById = async (id: string): Promise<IStarship> => {
   try {
-    const response: AxiosResponse<IStarship> = await axios.get('/starships', {
-      params: { id }
-    })
+    const response: AxiosResponse<IStarship> = await axios.get(`/starships/${id}`)
 
     return response.data
   } catch (error) {
