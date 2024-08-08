@@ -11,3 +11,11 @@ export const getFilmById = async (id: string): Promise<IFilm> => {
     throw error
   }
 }
+
+export const fetchFilms = async (filmUrls: string[]) => {
+  if (!filmUrls.length) return []
+
+  const filmRequests = filmUrls.map((url) => getFilmById(url))
+  const filmResponses = await Promise.all(filmRequests)
+  return filmResponses
+}
