@@ -34,11 +34,11 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { onBeforeMount } from 'vue';
 import BasePagination from '@/components/shared/BasePagination.vue';
 import BaseCard from '@/components/shared/BaseCard.vue';
 import BaseCardSkeleton from '@/components/shared/BaseCardSkeleton.vue';
-import { imageUrl } from '@/api/people';
+import { imageUrl } from '@/api/axios';
 import { usePeople } from '@/hooks/usePeople';
 
 const {
@@ -51,7 +51,7 @@ const {
   onPageChange
 } = usePeople();
 
-onMounted(() => {
+onBeforeMount(() => {
   fetchPeople();
 });
 </script>
