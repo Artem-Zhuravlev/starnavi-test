@@ -9,6 +9,14 @@
   />
 </template>
 
+<script lang="ts">
+export enum NodeType {
+  INPUT = 'input',
+  DEFAULT = 'default',
+  OUTPUT = 'output',
+}
+</script>
+
 <script setup lang="ts">
 import type { Node, Edge } from '@vue-flow/core';
 import { VueFlow } from '@vue-flow/core';
@@ -18,6 +26,7 @@ const props = defineProps<{
   nodes: Node[];
   edges: Edge[];
 }>();
+
 </script>
 
 <style>
