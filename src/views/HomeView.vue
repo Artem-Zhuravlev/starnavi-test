@@ -1,9 +1,7 @@
 <template>
-  <main>
-    <div class="container">
-      <people-list />
-    </div>
-  </main>
+  <div class="container">
+    <people-list />
+  </div>
 </template>
 
 <script setup lang="ts">
