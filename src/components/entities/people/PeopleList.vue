@@ -9,7 +9,7 @@
   <div class="row">
     <template v-if="isLoading">
       <div
-        v-for="index in itemsPerPage"
+        v-for="index in 10"
         :key="index"
         class="col-lg-4 col-md-6"
       >
