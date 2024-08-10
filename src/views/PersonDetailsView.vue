@@ -1,12 +1,10 @@
 <template>
-  <main>
-    <div class="container">
-      <person-details-flow
-        v-if="personDetails"
-        :details="personDetails"
-      />
-    </div>
-  </main>
+  <div class="container">
+    <person-details-flow
+      v-if="personDetails"
+      :details="personDetails"
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
