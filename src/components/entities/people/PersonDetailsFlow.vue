@@ -1,7 +1,13 @@
 <template>
   <base-flow
+    v-if="details"
     :nodes="nodes"
     :edges="edges"
+  />
+  <base-skeleton
+    v-else
+    width="100%"
+    height="400px"
   />
 </template>
 
@@ -11,9 +17,10 @@ import { generateRandomPosition } from '@/utils/flow-position';
 import type { Node, Edge } from '@vue-flow/core';
 import type { IPersonDetails } from '@/interfaces/IPersonDetails';
 import BaseFlow, { NodeType } from '@/components/shared/BaseFlow.vue';
+import BaseSkeleton from '@/components/shared/BaseSkeleton.vue';
 
 const props = defineProps<{
-  details: IPersonDetails;
+  details: IPersonDetails | null;
 }>();
 
 // Function to create a node
