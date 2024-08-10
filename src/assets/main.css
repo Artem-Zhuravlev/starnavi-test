@@ -26,3 +26,8 @@ img {
   margin: 0 auto;
   padding: 0 var(--space-md);
 }
+
+main {
+  padding-top: var(--size-md);
+  padding-bottom: var(--size-md);
+}
