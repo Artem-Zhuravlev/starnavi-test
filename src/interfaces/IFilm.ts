@@ -2,6 +2,7 @@ import type IResource from './IBase'
 import { type IResourceUrl } from './IBase'
 
 export default interface IFilm extends IResource {
+  slug?: string
   title: string
   episode_id: number
   opening_crawl: string
