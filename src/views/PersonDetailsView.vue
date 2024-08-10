@@ -1,7 +1,6 @@
 <template>
   <div class="container">
     <person-details-flow
-      v-if="personDetails"
       :details="personDetails"
     />
   </div>
