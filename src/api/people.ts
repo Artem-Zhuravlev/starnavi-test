@@ -16,9 +16,9 @@ export interface IPeopleResponse<T> {
  * @returns {Promise<IPeopleResponse<IPeople>>} A promise that resolves to a response object containing the people data.
  * @throws Will throw an error if the request fails.
  */
-export const getPeople = async (page?: number): Promise<IPeopleResponse<IPeople>> => {
+export const getPeople = async (page?: number): Promise<IPeopleResponse<IPeople[]>> => {
   try {
-    const response: AxiosResponse<IPeopleResponse<IPeople>> = await axios.get('/people', {
+    const response: AxiosResponse<IPeopleResponse<IPeople[]>> = await axios.get('/people', {
       params: {
         page
       }
