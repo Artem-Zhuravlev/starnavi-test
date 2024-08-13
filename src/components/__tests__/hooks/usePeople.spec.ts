@@ -1,12 +1,13 @@
 import { describe, it, expect, vi } from 'vitest'
 import { usePeople } from '@/hooks/usePeople'
 import { getPeople, type IPeopleResponse } from '@/api/people'
+import type IPeople from '@/interfaces/IPeople'
 
 vi.mock('@/api/people', () => ({
   getPeople: vi.fn()
 }))
 
-const mockData: IPeopleResponse = {
+const mockData: IPeopleResponse<IPeople[]> = {
   results: [
     {
       birth_year: '57BBY',
