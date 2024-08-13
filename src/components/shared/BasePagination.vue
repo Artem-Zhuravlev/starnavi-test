@@ -56,6 +56,7 @@ const emit = defineEmits<{
   (event: 'pageChanged', page: number): void
 }>()
 
+// Determine the start page for pagination based on current page and visible buttons.
 const startPage = computed(() => {
   if (props.currentPage === 1) {
     return 1
@@ -68,10 +69,12 @@ const startPage = computed(() => {
   return props.currentPage - 1
 })
 
+// Calculate the end page for pagination, ensuring it does not exceed the total number of pages.
 const endPage = computed(() => {
   return Math.min(startPage.value + props.maxVisibleButtons - 1, props.totalPages)
 })
 
+// Generate an array of page objects for pagination, marking the current page as disabled.
 const pages = computed(() => {
   const range = []
 
@@ -85,26 +88,32 @@ const pages = computed(() => {
   return range
 })
 
+// Check if the current page is the first page.
 const isInFirstPage = computed(() => {
   return props.currentPage === 1
 })
 
+// Check if the current page is the last page.
 const isInLastPage = computed(() => {
   return props.currentPage === props.totalPages
 })
 
+// Emit an event to change the page when a page number is clicked.
 const onClickPage = (page: number) => {
   emit('pageChanged', page)
 }
 
+// Check if the given page number is the current active page.
 const isPageActive = (page: number) => {
   return props.currentPage === page
 }
 
+// Emit an event to go to the previous page.
 const onClickPreviousPage = () => {
   emit('pageChanged', props.currentPage - 1)
 }
 
+// Emit an event to go to the next page.
 const onClickNextPage = () => {
   emit('pageChanged', props.currentPage + 1)
 }

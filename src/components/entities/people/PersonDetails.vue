@@ -39,6 +39,8 @@ const props = defineProps<{
     gender: string,
   } | null
 }>()
+
+// Generate the URL for the character's image based on their ID, or return an empty string if details are not available.
 const characterImageUrl = computed(() => {
   return props.details ? `${imageUrl}/characters/${props.details.id}.jpg` : '';
 });

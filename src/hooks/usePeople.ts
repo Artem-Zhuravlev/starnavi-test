@@ -9,6 +9,7 @@ export function usePeople() {
   const itemsPerPage = ref<number>(0)
   const items = ref<IPeople[]>([])
 
+  // Fetch people data for the given page, update state variables, and handle loading and errors.
   const fetchPeople = async (page: number = 1) => {
     try {
       isLoading.value = true
@@ -23,10 +24,12 @@ export function usePeople() {
     }
   }
 
+  // Calculate the total number of pages based on the total number of items and items per page.
   const totalPages = computed(() => {
     return Math.ceil(total.value / itemsPerPage.value)
   })
 
+  // Update the current page and fetch new data for the selected page.
   const onPageChange = async (page: number) => {
     currentPage.value = page
     await fetchPeople(page)
